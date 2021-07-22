@@ -67,8 +67,8 @@
 									<form id="{{ $task->id }}">
 										<div class="row">
 											<div class="form-check form-check-inline">
-												<input type="hidden" class="form-check-input" name="taskid" id="taskid" value="{{ $task->id }}">
-												<input type="hidden" class="form-check-input" name="status" id="status" value="{{ $task->status }}">
+												<input type="hidden" class="form-check-input" name="taskid" id="taskid{{ $task->id }}" value="{{ $task->id }}">
+												<input type="hidden" class="form-check-input" name="status" id="status{{ $task->id }}" value="{{ $task->status }}">
 											</div>
 											<div class="col">
 												<button type="submit" class="btn btn-success">Change</button>								
@@ -119,13 +119,13 @@
 	$('form').submit(function(e) {
 		var id = $(this).prop('id');
 		console.log(id);
-		document.cookie=id;
 
 		
 		e.preventDefault();
 
 		// let taskid = $('#taskid').val();
-		let status = {{ App\Models\Task::where('id',$_COOKIE['id'])->first() }}
+		// let status = {{ App\Models\Task::where('id')->first() }}
+		let status = $("#status"+id).val();
 
 		if(status!='Done')
 			status = 'Done'
