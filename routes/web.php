@@ -36,3 +36,5 @@ Route::post('register', [AuthenticationController::class, 'register'])->name('re
 
 Route::get('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
+
+
