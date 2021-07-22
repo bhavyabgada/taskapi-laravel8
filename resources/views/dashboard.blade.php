@@ -124,7 +124,7 @@
 		e.preventDefault();
 
 		// let taskid = $('#taskid').val();
-		let status = $('#status').val();
+		let status = {{ App\Models\Task::where('id',id)->first() }}
 
 		if(status!='Done')
 			status = 'Done'
