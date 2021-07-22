@@ -122,6 +122,11 @@
 		let taskid = $('#taskid').val();
 		let status = $('#status').val();
 
+		if(status!='Done')
+			status = 'Pending'
+		else
+			status = 'Done'
+
 		$.ajax({
 			url: "/api/task/status/"+taskid,
 			type:"POST",
@@ -131,10 +136,6 @@
 				"Content-Type":"application/x-www-form-urlencoded",
 			},
 			data:{
-				if(status!='Done')
-					status = 'Pending'
-				else
-					status = 'Done'
 				status:status,
 			},
 			success:function(response){
