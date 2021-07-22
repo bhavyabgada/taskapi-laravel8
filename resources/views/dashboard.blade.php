@@ -99,24 +99,6 @@
 				window.location = "{{ route('dashboard') }}";
 			},
 		});
-		// var url = "http://laravel8-auth.herokuapp.com/api/task/add";
-
-		// var xhr = new XMLHttpRequest();
-		// xhr.open("POST", url);
-
-		// xhr.setRequestHeader("Accept", "application/json");
-		// xhr.setRequestHeader("Authorization", "Bearer {{ $token }}");
-		// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-		// xhr.onreadystatechange = function () {
-		// 	if (xhr.readyState === 4) {
-		// 		console.log(xhr.status);
-		// 		console.log(xhr.responseText);
-		// 	}};
-
-		// 	var data = "task="+task+"&status="+status;
-
-		// 	xhr.send(data);
-		// });
+		
 	</script>
 	@endsection
