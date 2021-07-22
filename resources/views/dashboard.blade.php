@@ -99,6 +99,7 @@
 				window.location = "{{ route('dashboard') }}";
 			},
 		});
-		
-	</script>
-	@endsection
+	});
+	
+</script>
+@endsection
