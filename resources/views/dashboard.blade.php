@@ -20,7 +20,7 @@
 			<div class="card card-signin my-5">
 				<div class="card-body">
 					<h5 class="card-title text-center">Task List</h5>
-					@foreach (Session::get('tasks') as $task)
+					
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -30,14 +30,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach (Session::get('tasks') as $task)
 							<tr>
 								<th scope="row">{{ $task->id }}</th>
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
-					@endforeach
+					
 				</div>
 			</div>
 		</div>
