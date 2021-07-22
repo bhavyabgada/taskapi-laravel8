@@ -117,7 +117,8 @@
 			var data = "task="+task+"&status="+status;
 
 			xhr.send(data);
+			window.location.reload();
 		});
-	window.location.reload();
+	// window.location.reload();
 </script>
 @endsection
