@@ -20,9 +20,9 @@ class AuthenticationController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
-        
+
         if (Auth::attempt($credentials)) {
+            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
             if(!$request->is('api/*')){
                 $tasks = Task::where('user_id',Auth::id())->get();
                 return redirect()->intended('dashboard')
