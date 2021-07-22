@@ -88,10 +88,9 @@
 			headers:{
 				"Accept":"application/json",
 				"Authorization":"Bearer {{ $token }}",
-				"Content-Type": "application/x-www-form-urlencoded",
+				"Content-Type":"application/x-www-form-urlencoded",
 			},
 			data:{
-				// "_token": "{{ csrf_token() }}",
 				task:task,
 				status:status,
 			},
