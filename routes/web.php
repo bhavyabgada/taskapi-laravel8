@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $tasks = Task::where('user_id',Auth::id())->get();
+    $token = Session::get('token');
+    return view('dashboard', ['tasks'=>$tasks, 'token'=>$token]);
 })->middleware('auth')->name('dashboard');
 
 Route::get('login', function () {
