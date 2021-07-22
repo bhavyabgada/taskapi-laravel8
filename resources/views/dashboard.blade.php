@@ -61,7 +61,7 @@
 								<th scope="row">{{ $task->id }}</th>
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
-								<td><a class="btn btn-primary" id="change">Change</a></td>
+								<td><a class="btn btn-success" id="change">Change</a></td>
 							</tr>
 							@endforeach
 						</tbody>
