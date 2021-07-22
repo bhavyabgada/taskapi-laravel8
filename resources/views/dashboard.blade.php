@@ -64,7 +64,7 @@
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
 								<td>
-									<form id="update-task">
+									<form id="update-task-{{ $task->id }}">
 										<div class="row">
 											<div class="form-check form-check-inline">
 												<input type="hidden" class="form-check-input" name="taskid" id="taskid" value="{{ $task->id }}">
@@ -119,35 +119,35 @@
 	$('form').submit(function(e) {
 		var id = $(this).prop('id');
 		console.log(id)
-	});
 
-	$('#update-task').on('submit',function(e){
-		e.preventDefault();
+		$('#'+id).on('submit',function(e){
+			e.preventDefault();
 
-		let taskid = $('#taskid').val();
-		let status = $('#status').val();
+			let taskid = $('#taskid').val();
+			let status = $('#status').val();
 
-		if(status!='Done')
-			status = 'Done'
-		else
-			status = 'Pending'
-		console.log(status)
+			if(status!='Done')
+				status = 'Done'
+			else
+				status = 'Pending'
+			console.log(status)
 
-		$.ajax({
-			url: "/api/task/status/"+taskid,
-			type:"POST",
-			headers:{
-				"Accept":"application/json",
-				"Authorization":"Bearer {{ $token }}",
-				"Content-Type":"application/x-www-form-urlencoded",
-			},
-			data:{
-				status:status,
-			},
-			success:function(response){
-				console.log(response);
-				window.location = "{{ route('dashboard') }}";
-			},
+			$.ajax({
+				url: "/api/task/status/"+taskid,
+				type:"POST",
+				headers:{
+					"Accept":"application/json",
+					"Authorization":"Bearer {{ $token }}",
+					"Content-Type":"application/x-www-form-urlencoded",
+				},
+				data:{
+					status:status,
+				},
+				success:function(response){
+					console.log(response);
+					window.location = "{{ route('dashboard') }}";
+				},
+			});
 		});
 	});
 </script>
