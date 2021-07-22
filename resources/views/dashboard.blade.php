@@ -96,6 +96,7 @@
 			},
 			success:function(response){
 				console.log(response);
+				window.location = {{ route('dashboard') }}
 			},
 		});
 		// var url = "http://laravel8-auth.herokuapp.com/api/task/add";
