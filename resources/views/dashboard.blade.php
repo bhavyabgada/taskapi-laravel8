@@ -52,6 +52,8 @@
 								<th scope="col">#</th>
 								<th scope="col">Task</th>
 								<th scope="col">Status</th>
+								<th scope="col">Update</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -61,7 +63,18 @@
 								<th scope="row">{{ $task->id }}</th>
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
-								<td><a class="btn btn-success" id="change">Change</a></td>
+								<td>
+									<form id="update-task">
+										<div class="row">
+											<div class="form-check form-check-inline">
+												<input type="hidden" class="form-check-input" name="taskid" id="taskid" value="{{ $task->id }}">
+											</div>
+											<div class="col">
+												<button type="submit" class="btn btn-success">Change</button>								
+											</div>
+										</div>
+									</form>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>
