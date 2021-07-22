@@ -27,14 +27,6 @@
 				<div class="col">
 					<label class="form-check-label" for="status">Status:</label>							
 				</div>
-				<div class="col form-control form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="pending" id="pending" value="Pending">
-					<label class="form-check-label" for="pending">Pending</label>
-				</div>
-				<div class="col form-control form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="done" id="done" value="Done">
-					<label class="form-check-label" for="done">Done</label>
-				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
 					<label class="form-check-label" for="inlineRadio1">Pending</label>
@@ -88,7 +80,7 @@
 		e.preventDefault();
 
 		let task = $('#task').val();
-		let status = ($("#done").prop("checked") == true ? 'Done' : 'Pending');
+		let status = ($("#inlineRadio1").prop("checked") == true ? 'Done' : 'Pending');
 
 		$.ajax({
 			url: "/api/task/add",
