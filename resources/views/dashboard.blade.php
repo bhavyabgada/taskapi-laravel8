@@ -123,9 +123,9 @@
 		let status = $('#status').val();
 
 		if(status!='Done')
-			status = 'Pending'
-		else
 			status = 'Done'
+		else
+			status = 'Pending'
 		console.log(status)
 
 		$.ajax({
