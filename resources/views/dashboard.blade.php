@@ -54,49 +54,49 @@
 							</tr>
 						</thead>
 						<tbody>
-							{{ $tasks=(Session::get('tasks') }}
-								@foreach ($tasks as $task)
-								<tr>
+							{{ $tasks=(Session::get('tasks')) }}
+							@foreach ($tasks as $task)
+							<tr>
 								<th scope="row">{{ $task->id }}</th>
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
-								</tr>
-								@endforeach
-								</tbody>
-								</table>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
 
-								</div>
-								</div>
-								</div>
-								</div>
-								</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-								<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
-								<script type="text/javascript">
+<script type="text/javascript">
 
-								$('#create-task').on('submit',function(e){
-									e.preventDefault();
+	$('#create-task').on('submit',function(e){
+		e.preventDefault();
 
-									let task = $('#task').val();
-									let status = ($("#done").prop("checked") == true ? 'Done' : 'Pending');
+		let task = $('#task').val();
+		let status = ($("#done").prop("checked") == true ? 'Done' : 'Pending');
 
-									$.ajax({
-										url: "/api/task/add",
-										type:"POST",
-										headers:{
-											"Accept":"application/json",
-											"Authorization", "Bearer {{ Session::get('token') }}"
-										},
-										data:{
+		$.ajax({
+			url: "/api/task/add",
+			type:"POST",
+			headers:{
+				"Accept":"application/json",
+				"Authorization", "Bearer {{ Session::get('token') }}"
+			},
+			data:{
 				// "_token": "{{ csrf_token() }}",
-											task:task,
-											status:status,
-										},
-										success:function(response){
-											console.log(response);
-										},
-									});
+				task:task,
+				status:status,
+			},
+			success:function(response){
+				console.log(response);
+			},
+		});
 		// var url = "http://laravel8-auth.herokuapp.com/api/task/add";
 
 		// var xhr = new XMLHttpRequest();
@@ -116,6 +116,6 @@
 
 		// 	xhr.send(data);
 		// });
-									window.location.reload();
-									</script>
-									@endsection
+		window.location.reload();
+	</script>
+	@endsection
