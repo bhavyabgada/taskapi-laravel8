@@ -121,38 +121,36 @@
 
 
 
-	
+
 
 	// $('#update-task').on('submit',function(e){
 	// 	e.preventDefault();
 
+	// 	let taskid = $('#taskid').val();
+	// 	let status = $('#status').val();
 
+	// 	if(status!='Done')
+	// 		status = 'Done'
+	// 	else
+	// 		status = 'Pending'
+	// 	console.log(status)
 
-		// let taskid = $('#taskid').val();
-		// let status = $('#status').val();
-
-		// if(status!='Done')
-		// 	status = 'Done'
-		// else
-		// 	status = 'Pending'
-		// console.log(status)
-
-		// $.ajax({
-		// 	url: "/api/task/status/"+taskid,
-		// 	type:"POST",
-		// 	headers:{
-		// 		"Accept":"application/json",
-		// 		"Authorization":"Bearer {{ $token }}",
-		// 		"Content-Type":"application/x-www-form-urlencoded",
-		// 	},
-		// 	data:{
-		// 		status:status,
-		// 	},
-		// 	success:function(response){
-		// 		console.log(response);
-		// 		// window.location = "{{ route('dashboard') }}";
-		// 	},
-		// });
-	});
+	// 	$.ajax({
+	// 		url: "/api/task/status/"+taskid,
+	// 		type:"POST",
+	// 		headers:{
+	// 			"Accept":"application/json",
+	// 			"Authorization":"Bearer {{ $token }}",
+	// 			"Content-Type":"application/x-www-form-urlencoded",
+	// 		},
+	// 		data:{
+	// 			status:status,
+	// 		},
+	// 		success:function(response){
+	// 			console.log(response);
+	// 			// window.location = "{{ route('dashboard') }}";
+	// 		},
+	// 	});
+	// });
 </script>
 @endsection
