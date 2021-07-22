@@ -54,20 +54,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (Session::get('tasks') as $task)
+							{{ $tasks=(Session::get('tasks') }}
+								@foreach $tasks as $task)
 							<tr>
-								<th scope="row">{{ $task->id }}</th>
-								<td>{{ $task->task }}</td>
-								<td>{{ $task->status }}</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
+							<th scope="row">{{ $task->id }}</th>
+							<td>{{ $task->task }}</td>
+							<td>{{ $task->status }}</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
 
-				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

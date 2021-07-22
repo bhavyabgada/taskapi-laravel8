@@ -20,16 +20,16 @@ class AuthenticationController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-
+        $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
+        
         if (Auth::attempt($credentials)) {
             if(!$request->is('api/*')){
                 $tasks = Task::where('user_id',Auth::id())->get();
                 return redirect()->intended('dashboard')
-                ->with(['tasks'=>$tasks])
+                ->with(['tasks'=>$tasks, 'token'=>$token])
                 ->withSuccess('Signed in');
             }
             else{ 
-                $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
                 return response()->json(['token' => $token], 200);
             }
         }else{
