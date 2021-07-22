@@ -120,7 +120,7 @@
 		var id = $(this).prop('id');
 		console.log(id)
 
-		$('#'+id).on('submit',function(e){
+		$(id).on('submit',function(e){
 			e.preventDefault();
 
 			let taskid = $('#taskid').val();
