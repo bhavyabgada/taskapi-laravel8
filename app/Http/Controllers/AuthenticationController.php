@@ -24,12 +24,7 @@ class AuthenticationController extends Controller
         if (Auth::attempt($credentials)) {
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
             if(!$request->is('api/*')){
-                // $tasks = Task::where('user_id',Auth::id())->get();
-                // return redirect()->intended('dashboard')
-                // ->with(['tasks'=>$tasks, 'token'=>$token])
-                // ->withSuccess('Signed in');
                 return redirect()->intended('dashboard')
-                ->with(['token'=>$token])
                 ->withSuccess('Signed in');
             }
             else{ 
