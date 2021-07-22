@@ -16,33 +16,34 @@
 	</div>
 	@endif
 	<div class="row">
+		<h5 class=" text-center">Add New Task</h5>
+
+		<form id="create-task">
+			<div class="row">
+				<div class="col">
+					<label class="form-check-label" for="task">Task</label>
+					<input type="text" class="form-control" placeholder="Task" id="task" name="task">
+				</div>
+				<div class="col">
+					<label class="form-check-label" for="status">Status:</label>							
+				</div>
+				<div class="col form-control form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="pending" id="pending" value="Pending">
+					<label class="form-check-label" for="pending">Pending</label>
+				</div>
+				<div class="col form-control form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="done" id="done" value="Done">
+					<label class="form-check-label" for="done">Done</label>
+				</div>
+				<div class="col">
+					<button type="submit" class="btn btn-primary">Add</button>								
+				</div>
+			</div>
+		</form>
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 			<div class="card card-signin my-5">
 				<div class="card-body">
-					<h5 class="card-title text-center">Add New Task</h5>
-
-					<form id="create-task">
-						<div class="row">
-							<div class="col">
-								<label class="form-check-label" for="task">Task</label>
-								<input type="text" class="form-control" placeholder="Task" id="task" name="task">
-							</div>
-							<div class="col">
-								<label class="form-check-label" for="status">Status:</label>							
-							</div>
-							<div class="col form-control form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="pending" id="pending" value="Pending">
-								<label class="form-check-label" for="pending">Pending</label>
-							</div>
-							<div class="col form-control form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="done" id="done" value="Done">
-								<label class="form-check-label" for="done">Done</label>
-							</div>
-							<div class="col">
-								<button type="submit" class="btn btn-primary">Add</button>								
-							</div>
-						</div>
-					</form>
+					
 					<h5 class="card-title text-center">Task List</h5>
 
 					<table class="table table-hover">
