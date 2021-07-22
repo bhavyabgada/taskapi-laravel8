@@ -118,20 +118,16 @@
 
 	$('form').submit(function(e) {
 		var id = $(this).prop('id');
-		console.log(id);
-
 		
 		e.preventDefault();
 
-		// let taskid = $('#taskid').val();
-		// let status = {{ App\Models\Task::where('id')->first() }}
 		let status = $("#status"+id).val();
 
 		if(status!='Done')
 			status = 'Done'
 		else
 			status = 'Pending'
-		console.log(status)
+		
 
 		$.ajax({
 			url: "/api/task/status/"+id,
@@ -146,7 +142,7 @@
 			},
 			success:function(response){
 				console.log(response);
-				// window.location = "{{ route('dashboard') }}";
+				window.location = "{{ route('dashboard') }}";
 			},
 		});
 	});
