@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
@@ -22,7 +23,9 @@ class AuthenticationController extends Controller
 
         if (Auth::attempt($credentials)) {
             if(!$request->is('api/*')){
+                $tasks = Task::where('user_id',Auth::id())->get();
                 return redirect()->intended('dashboard')
+                ->compact($tasks)
                 ->withSuccess('Signed in');
             }
             else{ 
