@@ -24,7 +24,8 @@ class AuthenticationController extends Controller
         if (Auth::attempt($credentials)) {
             if(!$request->is('api/*')){
                 $tasks = Task::where('user_id',Auth::id())->get();
-                return redirect()->intended('dashboard', ['tasks'=>$tasks])
+                return redirect()->intended('dashboard')
+                ->with(['tasks'=>$tasks])
                 ->withSuccess('Signed in');
             }
             else{ 
