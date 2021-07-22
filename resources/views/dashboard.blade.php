@@ -118,6 +118,6 @@
 
 			xhr.send(data);
 		});
-		// window.location.reload();
-	</script>
-	@endsection
+	window.location.reload();
+</script>
+@endsection
