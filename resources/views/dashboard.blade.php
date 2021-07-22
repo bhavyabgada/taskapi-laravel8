@@ -118,13 +118,14 @@
 
 	$('form').submit(function(e) {
 		var id = $(this).prop('id');
-		console.log(id)
+		console.log(id);
+		document.cookie=id;
 
 		
 		e.preventDefault();
 
 		// let taskid = $('#taskid').val();
-		let status = {{ App\Models\Task::where('id',$_GET['id'])->first() }}
+		let status = {{ App\Models\Task::where('id',$_COOKIE['id'])->first() }}
 
 		if(status!='Done')
 			status = 'Done'
