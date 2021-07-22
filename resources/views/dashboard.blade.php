@@ -64,9 +64,17 @@
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
 								<td>
-									<div id="tag<%=count++%> "> 
-										<a class="btn btn-success" href="/api/task/status/{{ $task->id }}">Change</a>
-									</div>
+									<form id="update-task">
+										<div class="row">
+											<div class="form-check form-check-inline">
+												<input type="hidden" class="form-check-input" name="taskid" id="taskid" value="{{ $task->id }}">
+												<input type="hidden" class="form-check-input" name="status" id="status" value="{{ $task->status }}">
+											</div>
+											<div class="col">
+												<button type="submit" class="btn btn-success">Change</button>								
+											</div>
+										</div>
+									</form>
 								</td>
 							</tr>
 							@endforeach
@@ -108,55 +116,39 @@
 		});
 	});
 
-
-
-
-	// $('.getval a').click(function() {
-	// 	event.preventDefault();
-	// 	var get = $(this).attr('href');
-	// 	alert(get);
-	// 	console.log(get);    
-	// });  
-
-	$( document ).ready(function() {
-		$('div[id^="tag"]').on('click', function() {  
-			alert($(this).attr('value'));
-		});
+	$('form').submit(function(e) {
+		var id = $(this).prop('id');
+		console.log(id)
 	});
 
+	$('#update-task').on('submit',function(e){
+		e.preventDefault();
 
+		let taskid = $('#taskid').val();
+		let status = $('#status').val();
 
+		if(status!='Done')
+			status = 'Done'
+		else
+			status = 'Pending'
+		console.log(status)
 
-
-
-	// $('#update-task').on('submit',function(e){
-	// 	e.preventDefault();
-
-	// 	let taskid = $('#taskid').val();
-	// 	let status = $('#status').val();
-
-	// 	if(status!='Done')
-	// 		status = 'Done'
-	// 	else
-	// 		status = 'Pending'
-	// 	console.log(status)
-
-	// 	$.ajax({
-	// 		url: "/api/task/status/"+taskid,
-	// 		type:"POST",
-	// 		headers:{
-	// 			"Accept":"application/json",
-	// 			"Authorization":"Bearer {{ $token }}",
-	// 			"Content-Type":"application/x-www-form-urlencoded",
-	// 		},
-	// 		data:{
-	// 			status:status,
-	// 		},
-	// 		success:function(response){
-	// 			console.log(response);
-	// 			// window.location = "{{ route('dashboard') }}";
-	// 		},
-	// 	});
-	// });
+		$.ajax({
+			url: "/api/task/status/"+taskid,
+			type:"POST",
+			headers:{
+				"Accept":"application/json",
+				"Authorization":"Bearer {{ $token }}",
+				"Content-Type":"application/x-www-form-urlencoded",
+			},
+			data:{
+				status:status,
+			},
+			success:function(response){
+				console.log(response);
+				// window.location = "{{ route('dashboard') }}";
+			},
+		});
+	});
 </script>
 @endsection
