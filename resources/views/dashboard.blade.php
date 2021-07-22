@@ -64,7 +64,7 @@
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
 								<td>
-									<form id="update-task-{{ $task->id }}">
+									<form id="{{ $task->id }}">
 										<div class="row">
 											<div class="form-check form-check-inline">
 												<input type="hidden" class="form-check-input" name="taskid" id="taskid" value="{{ $task->id }}">
@@ -123,7 +123,7 @@
 		
 		e.preventDefault();
 
-		let taskid = $('#taskid').val();
+		// let taskid = $('#taskid').val();
 		let status = $('#status').val();
 
 		if(status!='Done')
@@ -133,7 +133,7 @@
 		console.log(status)
 
 		$.ajax({
-			url: "/api/task/status/"+taskid,
+			url: "/api/task/status/"+id,
 			type:"POST",
 			headers:{
 				"Accept":"application/json",
