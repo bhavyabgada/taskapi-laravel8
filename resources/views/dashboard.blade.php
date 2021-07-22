@@ -145,7 +145,7 @@
 			},
 			success:function(response){
 				console.log(response);
-				window.location = "{{ route('dashboard') }}";
+				// window.location = "{{ route('dashboard') }}";
 			},
 		});
 	});
