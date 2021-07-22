@@ -87,7 +87,7 @@
 			type:"POST",
 			headers:{
 				"Accept":"application/json",
-				"Authorization": "Bearer {{ $token }}"
+				"Authorization":"Bearer {{ $token }}",
 			},
 			data:{
 				// "_token": "{{ csrf_token() }}",
