@@ -55,7 +55,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							{{ $tasks=(Session::get('tasks')) }}
+							
 							@foreach ($tasks as $task)
 							<tr>
 								<th scope="row">{{ $task->id }}</th>
@@ -105,7 +105,7 @@
 		// xhr.open("POST", url);
 
 		// xhr.setRequestHeader("Accept", "application/json");
-		// xhr.setRequestHeader("Authorization", "Bearer {{ Session::get('token') }}");
+		// xhr.setRequestHeader("Authorization", "Bearer {{ $token }}");
 		// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 		// xhr.onreadystatechange = function () {
