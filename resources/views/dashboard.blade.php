@@ -117,6 +117,6 @@
 
 		// 	xhr.send(data);
 		// });
-		window.location.reload();
+		// window.location.reload();
 	</script>
 	@endsection
