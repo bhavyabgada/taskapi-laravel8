@@ -8,7 +8,7 @@
 				<div class="card-body">
 					<h5 class="card-title text-center">Task List</h5>
 					{{ $tasks = Session::get('tasks') }}
-					@foreach (tasks as $task)
+					@foreach ($tasks as $task)
 					<table class="table table-hover">
 						<thead>
 							<tr>
