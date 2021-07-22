@@ -64,7 +64,9 @@
 								<td>{{ $task->task }}</td>
 								<td>{{ $task->status }}</td>
 								<td>
-									<a class="btn btn-success" href="/api/task/status/{{ $task->id }}">Change</a>
+									<div id="tag<%=count++%> "> 
+										<a class="btn btn-success" href="/api/task/status/{{ $task->id }}">Change</a>
+									</div>
 								</td>
 							</tr>
 							@endforeach
@@ -109,14 +111,18 @@
 
 
 
-	$('.getval a').click(function() {
-		event.preventDefault();
-		var get = $(this).attr('href');
-		alert(get);
-		console.log(get);    
-	});  
+	// $('.getval a').click(function() {
+	// 	event.preventDefault();
+	// 	var get = $(this).attr('href');
+	// 	alert(get);
+	// 	console.log(get);    
+	// });  
 
-
+	$( document ).ready(function() {
+		$('div[id^="tag"]').on('click', function() {  
+			alert($(this).attr('value'));
+		});
+	});
 
 
 
