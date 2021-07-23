@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
-use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TaskController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $tasks = Task::where('user_id',Auth::id())->latest()->get();
-    $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
-    return view('dashboard', ['tasks'=>$tasks, 'token'=>$token]);
-})->middleware('auth')->name('dashboard');
+Route::get('dashboard', [TaskController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 Route::get('login', function () {
     return view('auth.login');

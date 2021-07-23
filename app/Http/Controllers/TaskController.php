@@ -60,4 +60,11 @@ class TaskController extends Controller
                 'message' => 'Post can not be updated'
             ], 500);
     }
+
+    public function dashboard()
+    {
+        $tasks = Task::where('user_id',Auth::id())->latest()->get();
+        $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
+        return view('dashboard', ['tasks'=>$tasks, 'token'=>$token]);
+    }
 }

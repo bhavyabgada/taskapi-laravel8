@@ -81,7 +81,6 @@
 							<form id="{{ $task->id }}">
 								<div class="row">
 									<div class="form-check form-check-inline">
-										<input type="hidden" class="form-check-input" name="taskid" id="taskid{{ $task->id }}" value="{{ $task->id }}">
 										<input type="hidden" class="form-check-input" name="status" id="status{{ $task->id }}" value="{{ $task->status }}">
 									</div>
 									<div class="col">
