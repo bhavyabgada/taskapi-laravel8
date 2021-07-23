@@ -111,7 +111,6 @@
 <script type="text/javascript">
 
 	function create_task(){
-		e.preventDefault();
 		let task = $('#task').val();
 		let status = '';
 		if($("#inlineRadio2").prop("checked") == true)
@@ -139,8 +138,6 @@
 	}
 
 	function update_task(id) {
-		e.preventDefault();
-
 		let status = $("#status"+id).val();
 
 		if(status!='Done')
@@ -168,12 +165,13 @@
 	}
 
 	$('form').submit(function(e) {
+		e.preventDefault();
 		var id = $(this).prop('id');
 
 		if (id = 'create-task')
 			create_task()
 		else
-			update_task()
+			update_task(id)
 	});
 
 </script>
