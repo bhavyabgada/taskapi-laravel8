@@ -114,10 +114,11 @@
 		e.preventDefault();
 
 		let task = $('#task').val();
+		let status = '';
 		if($("#inlineRadio1").prop("checked") == true)
-			let status = 'Done'
+			status = 'Done';
 		else if ($("#inlineRadio2").prop("checked") == true)
-			let status = 'Pending'
+			status = 'Pending';
 
 		$.ajax({
 			url: "/api/task/add",
