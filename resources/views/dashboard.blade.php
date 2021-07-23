@@ -144,7 +144,7 @@
 			status = 'Done'
 		else
 			status = 'Pending'
-		console.log(status);
+		console.log(id);
 		
 
 		$.ajax({
@@ -168,11 +168,12 @@
 	$('form').submit(function(e) {
 		e.preventDefault();
 		var id = $(this).prop('id');
+		console.log(id);
 
-		if (id = 'create-task')
-			create_task()
-		else
-			update_task(id)
+		// if (id = 'create-task')
+		// 	create_task()
+		// else
+		// 	update_task(id)
 	});
 
 </script>
