@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $tasks = Task::where('user_id',Auth::id())->get();
+    $tasks = Task::where('user_id',Auth::id())->latest()->get();
     $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
     return view('dashboard', ['tasks'=>$tasks, 'token'=>$token]);
 })->middleware('auth')->name('dashboard');
