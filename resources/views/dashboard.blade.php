@@ -144,6 +144,7 @@
 			status = 'Done'
 		else
 			status = 'Pending'
+		console.log(status);
 		
 
 		$.ajax({
