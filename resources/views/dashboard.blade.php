@@ -143,9 +143,7 @@
 		if(status!='Done')
 			status = 'Done'
 		else
-			status = 'Pending'
-		console.log(id);
-		
+			status = 'Pending'		
 
 		$.ajax({
 			url: "/api/task/status/"+id,
