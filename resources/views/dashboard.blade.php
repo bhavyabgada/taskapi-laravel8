@@ -115,9 +115,9 @@
 
 		let task = $('#task').val();
 		let status = '';
-		if($("#inlineRadio1").prop("checked") == true)
+		if($("#inlineRadio2").prop("checked") == true)
 			status = 'Done';
-		else if ($("#inlineRadio2").prop("checked") == true)
+		else if ($("#inlineRadio1").prop("checked") == true)
 			status = 'Pending';
 
 		$.ajax({
