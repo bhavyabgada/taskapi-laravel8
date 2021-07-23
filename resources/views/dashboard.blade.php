@@ -110,9 +110,8 @@
 
 <script type="text/javascript">
 
-	$('#create-task').on('submit',function(e){
+	function create_task(){
 		e.preventDefault();
-
 		let task = $('#task').val();
 		let status = '';
 		if($("#inlineRadio2").prop("checked") == true)
@@ -137,11 +136,9 @@
 				// window.location = "{{ route('dashboard') }}";
 			},
 		});
-	});
+	}
 
-	$('form').submit(function(e) {
-		var id = $(this).prop('id');
-
+	function update_task(id) {
 		e.preventDefault();
 
 		let status = $("#status"+id).val();
@@ -168,6 +165,15 @@
 				window.location = "{{ route('dashboard') }}";
 			},
 		});
+	}
+
+	$('form').submit(function(e) {
+		var id = $(this).prop('id');
+
+		if (id = 'create-task')
+			create_task()
+		else
+			update_task()
 	});
 
 </script>
